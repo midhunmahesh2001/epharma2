@@ -1,0 +1,9 @@
+<div class="High-container">
+  <div class="high-card" *ngFor="let medicine of medicines">
+    <img [src]="medicine.imageUrl" [alt]="medicine.name" />
+    <h3>{{ medicine.name }}</h3>
+    <p>Price: ₹{{ medicine.price }}</p>
+    <button (click)="addToCart()" class="btn btn-primary">Add to Cart</button>
+    <button (click)="clearCart()" class="btn btn-primary">Clear Cart</button>
+  </div>
+</div>

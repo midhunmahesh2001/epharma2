@@ -1,0 +1,58 @@
+<div class="ls-container">
+  <div class="ls-header">
+    <div class="text">{{ action }}</div>
+  </div>
+
+  <div class="lsinputs">
+    <div *ngIf="action === 'Sign Up'" class="ls-input">
+      <img src="/images/person.png" alt="person icon" />
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        [(ngModel)]="user.name"
+      />
+    </div>
+
+    <div class="ls-input">
+      <img src="/images/email.png" alt="email icon" />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Id"
+        [(ngModel)]="user.email"
+      />
+    </div>
+
+    <div class="ls-input">
+      <img src="/images/password.png" alt="password icon" />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="user.password"
+      />
+    </div>
+  </div>
+
+  <div *ngIf="action === 'Login'" class="forgot-password">
+    Forgot Password? <span>Click here</span>
+  </div>
+
+  <div class="submit-button">
+    <div
+      [ngClass]="{ submit: true, gray: action === 'Login' }"
+      (click)="setAction('Sign Up')"
+    >
+      Sign up
+    </div>
+    <div
+      [ngClass]="{ submit: true, gray: action === 'Sign Up' }"
+      (click)="setAction('Login')"
+    >
+      Login
+    </div>
+  </div>
+
+  <button class="main-button" (click)="submit()">{{ action }}</button>
+</div>
